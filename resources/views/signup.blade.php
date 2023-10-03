@@ -7,26 +7,29 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Signup Here</h1>
+   @extends('layouts.default')
+   @section('content')
+   <h1>Signup Here</h1>
 
-    <form action="/signup" method="post">
-        @csrf
-        <div>
-            <input type="text" name="name" placeholder="Enter username">
-        </div>
+   <form action="/signup" method="post">
+       @csrf
+       <div>
+           <input type="text" name="name" placeholder="Enter username">
+       </div>
 
-        <div>
-            <input type="email" name="email" placeholder="Enter email">
-        </div>
+       <div>
+           <input type="email" name="email" placeholder="Enter email">
+       </div>
 
-        <div>
-            <input type="password" name="password" placeholder="Enter password">
-        </div>
+       <div>
+           <input type="password" name="password" placeholder="Enter password">
+       </div>
 
-        <div>
-            <input type="submit" name="signup" value="Signup">
-        </div>
+       <div>
+           <input type="submit" name="signup" value="Signup">
+       </div>
 
-    </form>
+   </form>  
+   @endsection
 </body>
 </html>

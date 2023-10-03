@@ -22,3 +22,4 @@ Route::view('/signup', 'signup');
 Route::view('/login', 'login');
 
 Route::post('/signup', [AuthController::class, 'signup']);
+Route::post('/login', [AuthController::class, 'login'])->name('user.login');
