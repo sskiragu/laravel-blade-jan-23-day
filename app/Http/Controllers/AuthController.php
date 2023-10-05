@@ -16,8 +16,18 @@ class AuthController extends BaseController
     public function signup(Request $request){
         $user_validated_input = $request->validate([
             'name' => 'required | min:3',
-            'email' => 'required | email',
+            'email' => 'required | email | unique:users',
             'password' => 'required | min:6'
+        ],
+        [
+            'name.required' => 'Please enter a username.',
+            'name.min' => 'Username must be at least 3 characters long.',
+            'name.unique' => 'Username is already taken.',
+            'email.required' => 'Please enter an email address.',
+            'email.email' => 'Invalid email format.',
+            'email.unique' => 'Email address is already registered.',
+            'password.required' => 'Please enter a password.',
+            'password.min' => 'Password must be at least 6 characters long.',
         ]);
         // return dd($user_validated_input);
         User::create($user_validated_input);

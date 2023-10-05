@@ -15,14 +15,23 @@
        @csrf
        <div>
            <input type="text" name="name" placeholder="Enter username">
+           @if ($errors->has('name'))
+            <div class="alert alert-danger">{{ $errors->first('name') }}</div>
+            @endif
        </div>
 
        <div>
            <input type="email" name="email" placeholder="Enter email">
+           @if ($errors->has('email'))
+            <div class="alert alert-danger">{{ $errors->first('email') }}</div>
+            @endif
        </div>
 
        <div>
            <input type="password" name="password" placeholder="Enter password">
+           @if ($errors->has('password'))
+            <div class="alert alert-danger">{{ $errors->first('password') }}</div>
+            @endif
        </div>
 
        <div>
