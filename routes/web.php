@@ -19,7 +19,12 @@ Route::get('/', function () {
 });
 
 Route::view('/signup', 'signup');
-Route::view('/login', 'login');
+Route::view('/login', 'login')->name('login');
 
 Route::post('/signup', [AuthController::class, 'signup']);
 Route::post('/login', [AuthController::class, 'login'])->name('user.login');
+Route::get('/logout', [AuthController::class, 'logout'])->name('user.logout');
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::view('/dashboard', 'dashboard');
+});

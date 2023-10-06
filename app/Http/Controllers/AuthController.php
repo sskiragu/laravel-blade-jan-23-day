@@ -31,7 +31,7 @@ class AuthController extends BaseController
         ]);
         // return dd($user_validated_input);
         User::create($user_validated_input);
-        return redirect('/')->with('msg' , "User created successfully.");
+        return redirect('/login')->with('msg' , "User created successfully.");
     }
 
     public function login(Request $request){
@@ -42,14 +42,15 @@ class AuthController extends BaseController
         ]);
 
         if(Auth::attempt($user_credentials)){
-            return "Login successful!";
+            return redirect('/dashboard');
         }else{
             return "Invalid credentials";
         }
     }
 
     public function logout(){
-
+        Auth::logout();
+        return redirect('/login');
     }
 
 }
