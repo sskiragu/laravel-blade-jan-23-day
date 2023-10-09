@@ -25,6 +25,7 @@
     </div>
 
     {{-- Main content --}}
+    @yield('msg')
     @yield('content')
     @yield('sidebar')
 

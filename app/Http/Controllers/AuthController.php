@@ -44,7 +44,7 @@ class AuthController extends BaseController
         if(Auth::attempt($user_credentials)){
             return redirect('/dashboard');
         }else{
-            return "Invalid credentials";
+            return redirect('/login')->with(['msg' => 'Invalid credentials']);
         }
     }
 

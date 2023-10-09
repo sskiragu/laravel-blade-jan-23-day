@@ -8,6 +8,13 @@
 </head>
 <body>
    @extends('layouts.default')
+   @section('msg')
+       @if (session('msg'))
+           <div class="">
+                <h1>{{session('msg')}}</h1>
+           </div>
+       @endif
+   @endsection
     @section('content')
     <h1>Login Here</h1>
     <form action="{{route('user.login')}}" method="post">
