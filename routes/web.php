@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,7 @@ Route::post('/signup', [AuthController::class, 'signup']);
 Route::post('/login', [AuthController::class, 'login'])->name('user.login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('user.logout');
 
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => ['auth']], function(){
     Route::view('/dashboard', 'dashboard');
+    Route::resource('users', UserController::class);
 });

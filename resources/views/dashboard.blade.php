@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Welcome to the dashboard <span><a href="/logout">Logout</a></span></h1>
+    @extends('layouts.dashboard')
 </body>
 </html>
